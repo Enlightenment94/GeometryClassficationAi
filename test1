@@ -1,0 +1,76 @@
+Target the Test1 is recognition of a figure on a white background.
+
+#Model 1
+#Simple neuron model
+def build_simple_model(input_shape, num_classes):
+    model = tf.keras.Sequential([
+        tf.keras.layers.Flatten(input_shape=input_shape),         
+        tf.keras.layers.Dense(128, activation='relu'),            
+        tf.keras.layers.Dropout(0.2),
+        tf.keras.layers.Dense(num_classes, activation='softmax')  
+    ])
+    return model
+
+Model give a result Epoch 3
+accuracy: 0.19% (Level worse than pure chance)
+
+#Tunner
+
+
+#Advance model Neuron 256 128
+def build_advanced_dense_model(input_shape, num_classes):
+    model = tf.keras.Sequential([
+        tf.keras.layers.Flatten(input_shape=input_shape),
+        tf.keras.layers.Dense(256, activation='relu', kernel_regularizer=tf.keras.regularizers.l2(0.01)), 
+        tf.keras.layers.Dropout(0.3),
+        tf.keras.layers.Dense(10)
+        tf.keras.layers.Dense(num_classes, activation='softmax')
+    ])
+    return model
+
+#Model 2
+#Advance model Neuron 256 128
+def build_advanced_dense_model(input_shape, num_classes):
+    model = tf.keras.Sequential([
+        tf.keras.layers.Flatten(input_shape=input_shape),
+        tf.keras.layers.Dense(256, activation='relu', kernel_regularizer=tf.keras.regularizers.l2(0.01)), 
+        tf.keras.layers.Dropout(0.3),
+        tf.keras.layers.Dense(128, activation='relu', kernel_regularizer=tf.keras.regularizers.l2(0.01)),
+        tf.keras.layers.Dropout(0.2),
+        tf.keras.layers.Dense(num_classes, activation='softmax')
+    ])
+    return model
+
+#Model 3
+#Advance model Neuron 
+def build_advanced_dense_model_512_256(input_shape, num_classes):
+    model = tf.keras.Sequential([
+        tf.keras.layers.Flatten(input_shape=input_shape),
+        tf.keras.layers.Dense(512, activation='relu', kernel_regularizer=tf.keras.regularizers.l2(0.01)),
+        tf.keras.layers.Dropout(0.3),  
+        tf.keras.layers.Dense(256, activation='relu', kernel_regularizer=tf.keras.regularizers.l2(0.01)),
+        tf.keras.layers.Dropout(0.3),  
+        tf.keras.layers.Dense(num_classes, activation='softmax')
+    ])
+    
+    return model
+
+#Model 4
+#CNN model neuron
+def build_cnn_model(input_shape, num_classes):
+    model = tf.keras.Sequential([
+        tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=input_shape),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(128, activation='relu'),
+        tf.keras.layers.Dropout(0.5), 
+        tf.keras.layers.Dense(num_classes, activation='softmax')
+    ])
+    return model
+
+Model give a result Epoch 3
+accuracy: 0.92%

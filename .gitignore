@@ -1,0 +1,10 @@
+masks_dataset_bg_m/       
+random_figure_bg/    
+train_dataset/
+masks_test_dataset_bg_m/  
+random_figure_bg_m/  
+train_dataset_bg_m/
+output/                   
+test_dataset/
+random_figure/            
+test_dataset_bg_m/
